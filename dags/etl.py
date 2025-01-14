@@ -21,7 +21,7 @@ with DAG(
 
         ## SQL query to create the table
         create_table_query="""
-        CREATE TABLE IF NOT EXIST apod_data(
+        CREATE TABLE IF NOT EXISTS apod_data(
         id SERIAL PRIMARY KEY,
         title VARCHAR(255),
         explanation TEXT,
@@ -74,7 +74,7 @@ with DAG(
             apod_data['date'],
             apod_data['media_type']))
 
-    ## task 5: verify the data DBViewer
+    ## task 5: verify the data DBViewer/pgadmin (connect server, server host is the postgres container host)
 
 
     ## task 6: define the task dependency
@@ -85,3 +85,6 @@ with DAG(
     transformed_data=transform_apod_data(api_response)
     #load
     load_data_to_postgres(transformed_data)
+
+
+    ## after running the astro, need to establish two connections: nasa_api and my_postgres_connection before running the pipeline

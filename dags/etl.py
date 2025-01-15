@@ -36,7 +36,7 @@ with DAG(
 
 
     ## task 2: extract the NASA API data (APOD) [Extract pipeline]
-    ## endpoint: https://api.nasa.gov/planetary/apod?api_key=U7TB6zPprKEWtKIErGulnhcr0INu4TMrcOPj6AGG
+    ## endpoint: https://api.nasa.gov/planetary/apod?api_key=
     extract_apod=SimpleHttpOperator(
         task_id='extract_apod',
         http_conn_id='nasa_api', #connection ID defined in Airflow for NASA api
